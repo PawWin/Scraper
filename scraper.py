@@ -143,9 +143,16 @@ def extract_date_published(soup):
     return ""
 
 def extract_content(soup):
-    content_tags = soup.find_all(['h2', 'h3', 'p'])
-    #content += "".join([str(tag) for tag in content_tags]) #Zwraca text z tagami HTML
-    content = "".join([tag.get_text(separator='\n') for tag in content_tags]) #Zwraca tylko tekst
+    article_tags = soup.find_all('article')
+    content = ""
+    for article in article_tags:
+        content_tags = article.find_all(['h2', 'h3', 'p'])
+        #content += "".join([str(tag) for tag in content_tags]) #Zwraca text z tagami HTML
+        content = "".join([tag.get_text(separator='\n') for tag in content_tags]) #Zwraca tylko tekst
+    if not content:
+        content_tags = soup.find_all(['h2', 'h3', 'p'])
+        # content += "".join([str(tag) for tag in content_tags]) #Zwraca text z tagami HTML
+        content = "".join([tag.get_text(separator='\n') for tag in content_tags])  # Zwraca tylko tekst
     return content
 
 def integrate_serp_results(keyword):
