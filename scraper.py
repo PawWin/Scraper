@@ -213,7 +213,7 @@ def get_domain_from_url(url):
 
 
 def fetch_serp_results(keyword, num_results=10):
-    api_key = '38b796a6-872c-4e12-afd2-5bfeb2c2d4b7'
+    api_key = 'Api Key' # Wstawienie klucza API
     url = 'http://api.hasdata.com/google-serp/serp'
 
     params = {
