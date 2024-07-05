@@ -12,8 +12,8 @@ import re
 
 # Decyzja o tym aby najpierw zastosować Selenium do scrapowania artykułów, a następnie zwykłe scrapowanie
 # została podjeta na podstawie analizy wyników scrapowania artykułów z różnych stron. W przypadku niektórych stron
-# kategorie artykułów, data publikacji i treść artykułów były dostępne tylko w tagach script, z którymi
-# zwykłe requesty miały problem. O ile zwykłe requesty były w stanie pobrać treść tyhc tagów, to nie zawsze były
+# kategorie artykułów i data publikacji  były dostępne tylko w tagach script, z którymi
+# zwykłe requesty miały problem. O ile zwykłe requesty były w stanie pobrać treść tych tagów, to nie zawsze były
 # to kompletne dane, np. były wstanie zwrócić tylko tylko tylko ostatni element z listy kategorii, a nie wszystkie,
 # czy nie były wstanie zwrócić daty publikacji. Dlatego zdecydowałem się na zastosowanie Selenium jako pierwszej metody.
 
