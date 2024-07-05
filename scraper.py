@@ -143,12 +143,9 @@ def extract_date_published(soup):
     return ""
 
 def extract_content(soup):
-    article_tags = soup.find_all('article')
-    content = ""
-    for article in article_tags:
-        content_tags = article.find_all(['h2', 'h3', 'p'])
-        #content += "".join([str(tag) for tag in content_tags]) #Zwraca text z tagami HTML
-        content = "".join([tag.get_text(separator='\n') for tag in content_tags]) #Zwraca tylko tekst
+    content_tags = soup.find_all(['h2', 'h3', 'p'])
+    #content += "".join([str(tag) for tag in content_tags]) #Zwraca text z tagami HTML
+    content = "".join([tag.get_text(separator='\n') for tag in content_tags]) #Zwraca tylko tekst
     return content
 
 def integrate_serp_results(keyword):
@@ -295,14 +292,8 @@ def main_scraping(keyword):
 if __name__ == "__main__":
     #Step 1
     urls_to_scrape = [
-        'https://bistrolubie.pl/jak-zrobic-tradycyjny-miodownik-wedlug-starego-przepisu-porady',
-        'https://bistrolubie.pl/metrowiec-przepis-na-ciasto-ktore-zawsze-sie-udaje',
-        'https://spidersweb.pl/2024/07/metamorfoza-w-centrum-warszawy.html',
-        'https://spidersweb.pl/2024/07/kontrolery-na-steam-rosnie-popularnosc.html',
-        'https://www.chip.pl/2024/06/wtf-obalamy-mity-poprawnej-pozycji-przy-biurku',
-        'https://www.chip.pl/2024/07/sony-xperia-1-vi-test-recenzja-opinia',
-        'https://newonce.net/artykul/chief-keef-a-sprawa-polska-opowiadaja-benito-gicik-crank-all',
-        'https://newonce.net/artykul/glosna-gra-ktorej-akcja-toczy-sie-w-warszawie-1905-roku-gralismy-w-the-thaumaturge'
+        'https://www.gram.pl/artykul/top-10-najbardziej-wyczekiwane-gry-planszowe-2024-roku',
+        'https://planszeo.pl/kalendarz-premier-i-dodrukow'
     ]
     articles = [scrape_article_with_selenium(url) for url in urls_to_scrape]
     print(calculate_statistics(articles))
